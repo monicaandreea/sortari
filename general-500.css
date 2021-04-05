@@ -1,0 +1,23 @@
+html{
+    font-size:12px;
+}
+
+body{
+    --body-padding:0px;
+}
+
+#grid-pagina{
+    display:block;
+}
+
+
+.taburi-iframe a{
+    text-decoration:none;
+    width:75px;
+}
+
+#tabel>div{
+    width: 100%;
+    height: 15%;
+    overflow: auto;
+}
