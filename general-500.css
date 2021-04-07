@@ -21,3 +21,8 @@ body{
     height: 15%;
     overflow: auto;
 }
+
+.taburi-iframe{
+    display: flex;
+    flex-direction: column;
+}
