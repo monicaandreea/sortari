@@ -258,7 +258,7 @@ hr:after {
     text-align: center;
 }
 
-.taburi-iframe a:hover{
+#tabs>a:hover{
     color:white;
     background: linear-gradient(
   90deg,
@@ -331,43 +331,3 @@ hr:after {
         right: 0;
     }
 }
-
-
-/*
-.taburi-iframe a{
-    text-decoration:none;
-    width:100px;
-
-    /*ca sa se comporte ca un bloc in sensul ca sa ii dau dimensiuni
-    dar sa vina unele langa altele ca elemente inline, nu unele sub altele
-    
-    --- in task aveti de facut cu flexbox
-    
-    display:inline-block;
-
-    border:1px solid var(--lightcolor);
-
-    /*fara border in partea de jos
-    border-bottom: none;
-
-    /*rotunjesc doar colturile de sus:
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    background-image: linear-gradient(white, white 50%, var(--darkcolor));
-    color:var(--culoare-mov);
-    transition:all 0.5s linear;
-    text-align: center;
-}
-
-.taburi-iframe a+a{
-    
-    margin-left:-5px;
-}
-
-.taburi-iframe a:hover{
-    color:white;
-
-    /*ca sa anulez efectul gradientului si sa se vada imaginea din spate
-    background-image: none;
-    background-color: var(--culoare-roz-inchis);
-} */
