@@ -29,7 +29,11 @@ p, a, li{
 body{
     --body-padding:15%;
     --padding-intern:4%;
-    
+
+    background-image:url("./pictures/bg.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+
     padding-left:var(--body-padding);
     padding-right:var(--body-padding);
     padding-top:0;
@@ -102,6 +106,14 @@ figure img{
 }
 #server{
     grid-area: server;
+}
+
+header{
+    background-image: linear-gradient(transparent, transparent 10%, white 50%, transparent 90%, transparent);
+}
+
+#intro{
+    text-align: center;
 }
 
 #myBtn {
