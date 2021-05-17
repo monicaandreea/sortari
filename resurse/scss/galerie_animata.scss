@@ -1,0 +1,98 @@
+$numar-poze: <%=nrPoze %>;
+
+#sectiune-galerie-animata{
+	padding-left: var(--padding-intern);
+	padding-right: var(--padding-intern);
+}
+
+.galerie-a{
+	width:400px;
+	height:600px;
+	border:4px solid purple;
+  border-image: url('/resurse/pictures/bg.jpg');
+  border-image-slice: 20 22;
+  border-image-repeat: round;
+	position:relative;
+	overflow:hidden;
+	margin-bottom:5rem;
+}
+
+.galerie-a figcaption{
+	position:absolute;
+	bottom:0;
+	background:rgba(255,255,255,0.7);
+	width:100%;
+	text-align:center;
+}
+
+.galerie-a figure{
+	position:relative;
+	width:400px;
+	height:600px;
+}
+
+#galerie-animata figure{	
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:0;
+	animation-name:anim;
+	animation-timing-function:linear;
+	animation-iteration-count:infinite;
+	animation-fill-mode:forwards;
+	animation-duration:21s;	
+	transform-origin:center center;
+}
+
+#galerie-animata:hover figure{
+  animation-play-state: paused;
+}
+
+@for $i from 1 through $numar-poze{
+  #galerie-animata figure:nth-of-type(#{$i}){
+    animation-delay: #{3*$numar-poze - 3* $i}s;
+  }
+}
+
+$a: #{1 / $numar-poze * 100};
+$b: #{1 / $numar-poze * 100 / 2};
+$c: #{1 / $numar-poze * 100 + 0.0001};
+$d: #{100 - 1/$numar-poze * 100};
+$e: #{100 - 1/$numar-poze * 100 + 0.0001}; //in spate
+$f: #{1 / $numar-poze * 100 - 1};
+
+@keyframes anim {
+  0%{
+    z-index: 0;
+    opacity: 1;
+  }
+  #{$b}%{
+    transform: scaleY(1) rotateZ(0deg);
+  }
+  #{$f}%{
+    opacity: 1;
+    transform: scaleY(0.3) rotateZ(0deg);
+  }
+  #{$a}%{
+    z-index: 10;
+    opacity: 1;
+    transform-origin: center left;
+    transform: scaleY(0.3) rotateZ(90deg);
+  }
+  #{$c}%{
+    z-index: -10;
+    transform: scaleY(1) rotateZ(0deg);
+  }
+  #{$d}%{
+    z-index: -10;
+    opacity: 0;
+    transform: scaleY(1) rotateZ(0deg);
+  }
+  #{$e}%{
+    z-index: 0;
+  }
+  100%{
+    opacity: 1;
+    z-index: 0;
+  }
+} 
