@@ -1,0 +1,75 @@
+{
+	"cale_galerie":"resurse/pictures/galerie",
+	"imagini": [
+		{
+			"fisier":"last-olympian.jpg",
+			"titlu":"The last olympian",
+            "alt":"the last olympian by rick riordan",
+            "text":"The last olympian",
+            "luni": ["ianuarie", "martie", "aprilie"]
+		},
+		{
+			"fisier":"lightning-thief.png",
+			"titlu":"The lightning thief",
+            "alt":"the lightning thief by rick riordan",
+            "text": "The lightning thief",
+            "luni": ["iunie", "mai"]
+		},
+		{
+			"fisier":"hades.jpg",
+			"titlu":"The house of Hades",
+            "alt":"the house of hades by rick riordan",
+            "text": "clatite",
+            "luni": ["mai", "decembrie"]
+		},
+		{
+			"fisier":"labyrinth.jpg",
+			"titlu":"The battle of the labyrinth",
+            "alt":"the battle of the labyrinth by rick riordan",
+            "text": "The battle of the labyrinth",
+            "luni": ["august", "ianuarie"]
+		},
+		{
+			"fisier":"lost-hero.jpg",
+			"titlu":"The lost hero",
+            "alt":"the lost hero by rick riordan",
+            "text": "The lost hero",
+            "luni": ["mai", "septembrie", "februarie"]
+		},
+		{
+			"fisier":"mark-athena.jpg",
+			"titlu":"The mark of athena",
+            "alt":"the mark of athena by rick riordan",
+            "text": "The mark of athena",
+            "luni": ["iunie", "noiembrie", "mai"]
+		},
+		{
+			"fisier":"olympus.jpg",
+			"titlu":"The blood of olympus",
+            "alt":"the blood of olympus by rick riordan",
+            "text": "The blood of olympus",
+            "luni": ["februarie", "mai", "iulie"]
+		},
+		{
+			"fisier":"son-neptune.jpg",
+			"titlu":"The son of neptune",
+            "alt":"the son of neptune by rick riordan",
+            "text": "The son of neptune",
+            "luni": ["iunie", "iulie", "august"]
+		},
+		{
+			"fisier":"titan-curse.jpg",
+			"titlu":"Clătite cu dulceață",
+            "alt":"img cu clatite",
+            "text": "clatite",
+            "luni": ["noiembrie", "octombrie", "decembrie"]
+		},		
+		{
+			"fisier":"sea-monsters.jpg",
+			"titlu":"The sea of monsters",
+            "alt":"the sea of monsters by rick riordan",
+            "text": "The sea of monsters",
+            "luni": ["februarie", "martie", "mai"]
+		}
+	]
+}
