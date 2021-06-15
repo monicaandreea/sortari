@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <meta name="keywords" content="librarie, Libmone, carti, reduceri, sale, bestseller, fiction, fantasy">
+        <meta name="description" content="Librăria Libmone vă oferă cărți de la autorii preferații la cele mai bune prețuri, cu livrare rapida și reduceri din plin!">
+        <link rel="stylesheet" href="/resurse/css/produs.css" type="text/css" />
+        <title>Libmone - librărie online</title>
+        <%- include("../fragmente/head") %>
+    </head>
+
+    <body>
+      
+        <%- include("../fragmente/header") %>
+
+        <main>
+            <section>
+                <h2>Pagină produs</h2>
+                    <article id="art-produs">
+                        <h3><span class="nume"><%- locals.prod.titlu %></span></h3>
+                        <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
+                        <p>Autor: <span class="autor"><%- locals.prod.autor %> </span></p>
+                        <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+                        <p>An: <span class="an"><%- locals.prod.an %> </span></p>
+                        <p>Numar de pagini: <span class="gramaj"><%- locals.prod.pagini %> </span></p>
+                        <p>Categorie: <span class="categorie"><%- locals.prod.categorie %> </span></p>
+                        <p>ISBN: <span class="isbn"><%- locals.prod.isbn %> </span></p>
+                        <p>Semn de carte: <span class="semn"><%- locals.prod.semn %> </span></p>
+                        <p>Data adăugare: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
+                        <figure class="imag-produs">
+                            <img  src="/resurse/pictures/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
+                        </figure>    
+                        </article>
+                
+            </section>
+
+        </main>
+        <div id="banner">
+            <p><i class="fas fa-exclamation-circle"></i> Disclaimer:</p>
+            <p>Acesta este un proiect școlar.</p>
+        </div>
+
+        <%- include("../fragmente/footer") %>
+
+    </body>
+</html>
