@@ -2,6 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
+const {Client} =require('pg');
+const url = require('url');
 const ejs=require('ejs');
 const { exec } = require("child_process");
 
@@ -14,6 +16,16 @@ app.get("*/galerie.json", function(req, res){
     res.status(403).render("pagini/403");
     res.end();
 });
+
+const client = new Client({
+    host: 'localhost',
+    user: 'monica',
+    password: 'monica',
+    database: 'postgres',
+    port:5432
+})
+client.connect()
+
 
 function verificaImagini(){
 	var textFisier=fs.readFileSync("resurse/json/galerie.json")
@@ -51,13 +63,13 @@ function verificaImagini(){
         }
 	}
 
-    console.log("cnt inainte e ", cnt);
+   // console.log("cnt inainte e ", cnt);
 
     if(cnt>12){cnt = 12;}
     if(cnt<12 && cnt%3==1){cnt=cnt-1;}
     if(cnt<12 && cnt%3==2){cnt=cnt-2;}
 
-    console.log("cnt", cnt);
+    //console.log("cnt", cnt);
 
 	for (let im of jsi.imagini){
 		var imVeche= path.join(caleGalerie, im.fisier);
@@ -65,7 +77,7 @@ function verificaImagini(){
 		var numeFisier =path.basename(im.fisier,ext)
 		let imNoua=path.join(caleGalerie+"/mic/", numeFisier+"-mic"+".webp");
         
-    console.log("cnt", cnt);
+   // console.log("cnt", cnt);
         if(cnt==0)
             break;
         
@@ -78,7 +90,7 @@ function verificaImagini(){
             }
 
         }
-        console.log("cnt", cnt);
+       // console.log("cnt", cnt);
         //vectImagini.push({mare:imVeche, mic:imNoua, titlu:im.titlu, alt:im.alt, text:im.text, luni:im.luni});
 		if (!fs.existsSync(imNoua))//daca nu exista imaginea, mai jos o voi crea
 		sharp(imVeche)
@@ -169,6 +181,35 @@ app.get("/ceva", function(req, res){
 
 app.get("/favico.ico", function(req , res){
 
+});
+
+app.get("/produse", function(req, res){
+    let conditie= req.query.tip ?  " and tip_produs='"+req.query.tip+"'" : "";//daca am parametrul tip in cale (tip=cofetarie, de exemplu) adaug conditia pentru a selecta doar produsele de acel tip
+    console.log("select id, titlu, autor, pret, categorie, an, pagini, isbn, imagine from carti where 1=1"+conditie);
+    client.query("select id, titlu, autor, pret, categorie, an, pagini, isbn, imagine from carti where 1=1"+conditie, function(err,rez){
+        console.log(err, rez);
+        //console.log(rez.rows);
+        client.query("select unnest(enum_range( null::categ_carte)) as categ", function(err,rezCateg){//selectez toate valorile posibile din enum-ul categ_prajitura
+
+            console.log(rezCateg);
+            res.render("pagini/produse", {produse:rez.rows, categorii:rezCateg.rows});//obiectul {a:10,b:20} poarta numele locals in ejs  (locals["a"] sau locals.a)
+            });
+        
+       
+    });
+
+});
+
+app.get("/produs/:id_carte",function(req, res){
+    console.log(req.params);
+    
+    const rezultat= client.query("select * from carti where id="+req.params.id_carte, function(err,rez){
+        //console.log(err, rez);
+        //console.log(rez.rows);
+        res.render("pagini/produs", {prod:rez.rows[0]});//obiectul {a:10,b:20} poarta numele locals in ejs  (locals["a"] sau locals.a)
+    });
+
+    
 });
 
 
